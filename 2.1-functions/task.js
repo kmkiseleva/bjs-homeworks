@@ -38,25 +38,27 @@ function showSolutionsMessage(a, b, c) {
 
 showSolutionsMessage(7, 20, -3);
 
-// Задача 2
+// задача 2
 
 // function getAverageScore(data) {
 //    let data = {
-
+//       algebra: [],
+//       geometry: [],
+//       russian: [],
+//       physics: [],
+//       music: [],
+//       english: [],
+//       poetry: [],
+//       chemistry: [],
+//       french: []
 //    }
-
 // }
 
-// function getAverageMark(marks) {
-
-// }
-
-// // Задача 3
-
-// function getPersonData(secretData) {
-
-// }
-
-// function getDecodedValue(secret) {
-
-// }
+// function getAverageMark(...marks) {
+//       let sum = 0;
+//       for (let i = 0; i < marks.length; i++) {
+//       sum += marks[i];
+//       }
+//       return sum / marks.length;
+//       }
+//       console.log(getAverageMark(2, 4, 5));
