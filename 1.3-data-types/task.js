@@ -23,7 +23,7 @@ function calculateTotalMortgage(percent, contribution, amount, date) {
     const totalAmount = months * monthPayment;
 
     console.log(totalAmount.toFixed(2));
-    return totalAmount.toFixed(2);
+    return +totalAmount.toFixed(2);
 }
 
 function getGreeting(name) {
