@@ -42,23 +42,23 @@ showSolutionsMessage(7, 20, -3);
 
 // function getAverageScore(data) {
 //    let data = {
-//       algebra: [],
-//       geometry: [],
-//       russian: [],
-//       physics: [],
-//       music: [],
-//       english: [],
-//       poetry: [],
-//       chemistry: [],
-//       french: []
+//       algebra: [2, 4, 5, 2, 3, 4],
+//       geometry: [2, 4, 5],
+//       russian: [3, 3, 4, 5],
+//       physics: [5, 5],
+//       music: [2, 2, 6],
+//       english: [4, 4, 3],
+//       poetry: [5, 3, 4],
+//       chemistry: [2],
+//       french: [4, 4]
 //    }
-// }
 
-// function getAverageMark(...marks) {
-//       let sum = 0;
-//       for (let i = 0; i < marks.length; i++) {
-//       sum += marks[i];
-//       }
-//       return sum / marks.length;
-//       }
-//       console.log(getAverageMark(2, 4, 5));
+// function getAverageMark(marks) {
+//    let sum = 0;
+//    for (let i = 0; i < marks.length; i++) {
+//    sum += marks[i];
+//    }
+//    return sum / marks.length;
+//    }
+//    console.log(getAverageMark(2, 4, 5));
+// }
