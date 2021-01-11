@@ -1,6 +1,7 @@
 "use strict";
 
-// Задача 1
+console.log("Задача 1");
+
 function getSolutions(a, b, c) {
    let d = b ** 2 - 4 * a * c;
    let x0 = -b / (2 * a);
@@ -38,27 +39,42 @@ function showSolutionsMessage(a, b, c) {
 
 showSolutionsMessage(7, 20, -3);
 
-// задача 2
+console.log("\nЗадача 2");
 
-// function getAverageScore(data) {
-//    let data = {
-//       algebra: [2, 4, 5, 2, 3, 4],
-//       geometry: [2, 4, 5],
-//       russian: [3, 3, 4, 5],
-//       physics: [5, 5],
-//       music: [2, 2, 6],
-//       english: [4, 4, 3],
-//       poetry: [5, 3, 4],
-//       chemistry: [2],
-//       french: [4, 4]
-//    }
+function getAverageScore(data) {
+   let result = {};
+   let averageMarks = [];
 
-// function getAverageMark(marks) {
-//    let sum = 0;
-//    for (let i = 0; i < marks.length; i++) {
-//    sum += marks[i];
-//    }
-//    return sum / marks.length;
-//    }
-//    console.log(getAverageMark(2, 4, 5));
-// }
+   for (const key in data) {
+      result[key] = getAverageMark(data[key]);
+      averageMarks.push(result[key]);
+   }
+
+   result.average = getAverageMark(averageMarks);
+   return result;
+}
+
+function getAverageMark(marks) {   
+   let sum = 0;
+   
+   if (marks.length === 0) {
+      return 0;
+   }
+   
+   for (let i = 0; i < marks.length; i++) {
+          sum += marks[i];
+      }
+      return sum / marks.length;
+}
+
+console.log(getAverageScore({
+   algebra: [2, 4, 5, 2, 3, 4],
+   geometry: [2, 4, 5],
+   russian: [3, 3, 4, 5],
+   physics: [5, 5],
+   music: [2, 2, 6],
+   english: [4, 4, 3],
+   poetry: [5, 3, 4],
+   chemistry: [2],
+   french: [4, 4]
+}));
