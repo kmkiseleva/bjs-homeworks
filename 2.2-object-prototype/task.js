@@ -29,19 +29,8 @@ function getAverageMark(marks) {
 
 function checkBirthday(birthday) {
     let now = Date.now();
-    console.log(now);
-    let Date = {};
-    // let Date = dateOfBirthday.getFullYear();
-    // let birthday = +Date;
-    // let diff = birthday - now;
-    // let age = diff / 31 536 000 000;
-    // if (age >= 18) {
-    //     return true
-    // } else {
-    //     false
-    // }
-
-    // return verdict
+    let date = new Date(birthday);
+    birthday = +date;
+    let age = (now - birthday) / 31536000000;
+    return age >= 18;
 }
-
-checkBirthday();
