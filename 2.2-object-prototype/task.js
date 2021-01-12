@@ -30,6 +30,7 @@ function getAverageMark(marks) {
 function checkBirthday(birthday) {
     let now = Date.now();
     console.log(now);
+    // let Date = dateOfBirthday.getFullYear();
     // let birthday = +Date;
     // let diff = birthday - now;
     // let age = diff / 31 536 000 000;

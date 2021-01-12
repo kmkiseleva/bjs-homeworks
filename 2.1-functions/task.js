@@ -78,3 +78,22 @@ console.log(getAverageScore({
    chemistry: [2],
    french: [4, 4]
 }));
+
+console.log("\nЗадача 3");
+
+function getPersonData(secretData) {
+   return {
+      firstName: getDecodedValue(secretData.aaa),
+      lastName: getDecodedValue(secretData.bbb)  
+      }
+}
+
+function getDecodedValue(secret) {
+   let name = (secret === 0) ? "Родриго" : "Эмильо";
+   return name;
+}
+
+console.log(getPersonData({
+   aaa: 0,
+   bbb: 1
+}));
