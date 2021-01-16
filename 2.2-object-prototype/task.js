@@ -1,36 +1,36 @@
 "use strict";
 
 String.prototype.isPalindrome = function() {
-    let normalized = this.toLowerCase().replaceAll(" ", "");
-    let strRev = normalized.split('').reverse().join('').replaceAll(" ", "");
-    console.log(strRev);
-    console.log(normalized);
+    const normalizedString = this.toLowerCase().replaceAll(" ", "");
+    const reversedString = normalizedString.split('').reverse().join('').replaceAll(" ", "");
+    console.log(reversedString);
+    console.log(normalizedString);
 
-    return strRev === normalized;
+    return reversedString === normalizedString;
 }
 
 function getAverageMark(marks) {
-    let amount = marks.length;
+    let marksCount = marks.length;
     let sum = 0;
     let average, roundedAverage;
 
-    if (amount === 0) {
+    if (marksCount === 0) {
         return 0;
     }
 
-    for (let i = 0; i < amount; i++) {
+    for (let i = 0; i < marksCount; i++) {
         sum += marks[i];
     }
 
-    average = sum / amount;
+    average = sum / marksCount;
     roundedAverage = Math.round(average);
     return roundedAverage;
 }
 
 function checkBirthday(birthday) {
     let now = Date.now();
-    let date = new Date(birthday);
-    birthday = +date;
+    const parsedBirthday = new Date(birthday).getTime();
+    birthday = +parsedBirthday;
     let age = (now - birthday) / 31536000000;
     return age >= 18;
 }
