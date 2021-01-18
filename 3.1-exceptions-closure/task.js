@@ -3,7 +3,7 @@ console.log("Задача 1");
 
 function parseCount(string) {
    const result = Number.parseInt(string);
-   if (result === NaN) {
+   if (isNaN(result)) {
       throw new Error("Невалидное значение");
    }
    return result;
@@ -11,9 +11,9 @@ function parseCount(string) {
 
 function validateCount(value) {
    try {
-      parseCount(value);
+      return parseCount(value);
    } catch(error) {
-      return Error;
+      return error;
    }
 }
 
