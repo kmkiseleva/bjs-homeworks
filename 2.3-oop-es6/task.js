@@ -139,18 +139,7 @@ console.log("\nЗадача 3");
 class StudentLog {
    constructor(name) {
       this.name = name;
-      this.subjects = {
-         algebra: [],
-         geometry: [],
-         math: [],
-         russian: [],
-         physics: [],
-         music: [],
-         english: [],
-         poetry: [],
-         chemistry: [],
-         french: []
-      };
+      this.subjects = {};
    }
 
    getName() {
@@ -158,6 +147,9 @@ class StudentLog {
    }
 
    addGrade(grade, subject) {
+      if (!this.subjects[subject]) {
+         this.subjects[subject] = [];
+      }      
       if (grade >=1 && grade <= 5) {
          this.subjects[subject].push(grade);
       } else {
