@@ -97,24 +97,23 @@ class Library {
 
    findBookBy(type, value) {
       for (let i = 0; i < this.books.length; i++) {
-         if (this.books[i].type === value) {
+         if (this.books[i][type] === value) {
             return this.books[i];
-         } else {
-            return null;
          }
       }
+      return null;
    }
 
-   findBookByName(bookName) {
-      if (this.books.includes(bookName)) {
-         let index = this.books.indexOf(bookName);
-         if (index > -1) {
-            this.books.splice(index, 1);
-            return this.books[index];
-         }         
-      } else {
-         return null;
+   giveBookByName(bookName) {
+      for (let i = 0; i < this.books.length; i++) {
+         if (this.books[i].name === bookName) {
+            let index = this.books.indexOf(this.books[i]);
+            if (index > -1) {
+               return this.books.splice(index, 1)[0];
+            }
+         }
       }
+      return null;
    }
 }
 
@@ -126,13 +125,32 @@ library.addBook(new NovelBook("Герберт Уэллс", "Машина вре�
 library.addBook(new Magazine("Мурзилка", 1924, 60));
 
 console.log(library);
+
+console.log(library.findBookBy("name", "Властелин колец"));
+console.log(library.findBookBy("releaseDate", 1924).name);
+
 console.log("Количество книг до выдачи: " + library.books.length);
+console.log(library.giveBookByName("Машина времени"));
+console.log("Количество книг после выдачи: " + library.books.length);
+
 
 console.log("\nЗадача 3");
 
 class StudentLog {
    constructor(name) {
       this.name = name;
+      this.subjects = {
+         algebra: [],
+         geometry: [],
+         math: [],
+         russian: [],
+         physics: [],
+         music: [],
+         english: [],
+         poetry: [],
+         chemistry: [],
+         french: []
+      };
    }
 
    getName() {
@@ -140,17 +158,52 @@ class StudentLog {
    }
 
    addGrade(grade, subject) {
-
+      if (grade >=1 && grade <= 5) {
+         this.subjects[subject].push(grade);
+      } else {
+         console.log(`Вы пытались поставить оценку ${grade} по предмету ${subject}. Допускаются только числа от 1 до 5.`);
+      }
+      return this.subjects[subject].length;      
    }
 
    getAverageBySubject(subject) {
-
+      let sum = 0;
+      if (this.subjects[subject].length === 0) {
+         return 0;
+      }
+      
+      for (let i = 0; i < this.subjects[subject].length; i++) {
+             sum += this.subjects[subject][i];
+         }
+         return sum / this.subjects[subject].length;
    }
 
    getTotalAverage() {
-
+      let sum = 0;
+      let amount = [];
+      for (let prop in this.subjects) {         
+         for (let i = 0; i < this.subjects[prop].length; i++) {
+            sum += this.subjects[prop][i];
+            amount.push(this.subjects[prop][i]);
+        }
+      }
+      console.log(sum);
+      console.log(amount);
+      if (sum === 0) {
+         return 0;
+      }
+      return sum / amount.length;
    }
 }
 
 const log = new StudentLog('Олег Никифоров');
 console.log(log.getName());
+
+console.log(log.addGrade(2, 'algebra'));
+console.log(log.addGrade(4, 'algebra'));
+console.log(log.addGrade(5, 'geometry'));
+console.log(log.addGrade(4, 'geometry'));
+console.log(log.addGrade(25, 'geometry'));
+
+console.log(log.getAverageBySubject('geometry'));
+console.log(log.getTotalAverage());
