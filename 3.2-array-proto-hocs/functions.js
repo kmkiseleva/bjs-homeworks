@@ -23,15 +23,14 @@ function hasReliableWeapons(durability) {
 console.log(hasReliableWeapons(100));
 
 function getReliableWeaponsNames(durability) {
-   const reliableWeaponsNames = weapons.filter(weapon => weapon.durability > durability);
-   return reliableWeaponsNames.map(item => item.name);
+   return weapons.filter(weapon => weapon.durability > durability).map(item => item.name);
 }
 console.log(getReliableWeaponsNames(300));
 
 function getTotalDamage() {
-   let damage = 0;
-   weapons.map(item => damage += item.attack);
-   return damage;
+   return weapons.map(item => item.attack).reduce(function(sum, current) {
+      return sum + current;      
+   }, 0);
 }
 console.log(getTotalDamage());
 
@@ -64,16 +63,18 @@ function memorize(fn, limit) {
 
       if(myObj) {
          return myObj.result;
-      } else {
-         if (memory.length < limit) {
-            const result = fn(...args)
-            memory.push({
-               args: args,
-               result
-            });
-            return result;
-         }
       }
+         
+      const result = fn(...args);
+
+      if (memory.length > limit) {
+         memory.shift();
+      }
+      memory.push({
+               args,
+               result
+      });
+      return result;
    }
 }
 
