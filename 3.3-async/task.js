@@ -51,7 +51,7 @@ class AlarmClock {
 
    start() {
       function checkClock(clock) {
-         if (clock.time === AlarmClock.getCurrentFormattedTime) {
+         if (clock.time === new AlarmClock().getCurrentFormattedTime()) {
             clock.callback;
          }
       }
@@ -81,9 +81,9 @@ class AlarmClock {
 
 const alarmClock = new AlarmClock();
 
-alarmClock.addClock("22:41", () => console.log("Пора вставать"), 1);
-alarmClock.addClock("22:42", () => {console.log("Давай, вставай уже!"); alarmClock.removeClock(2)}, 2);
-alarmClock.addClock("22:43", () => console.log("Вставай, а то проспишь!"), 3);
+alarmClock.addClock("23:36", () => console.log("Пора вставать"), 1);
+alarmClock.addClock("23:37", () => {console.log("Давай, вставай уже!"); alarmClock.removeClock(2)}, 2);
+alarmClock.addClock("23:38", () => console.log("Вставай, а то проспишь!"), 3);
 
 alarmClock.printAlarms();
 alarmClock.start();
