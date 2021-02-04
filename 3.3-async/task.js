@@ -4,7 +4,7 @@ console.log("Задача 1");
 class AlarmClock {
    constructor() {
       this.alarmCollection = [];
-      this.timerId;
+      this.timerId = null;
    }
 
    addClock(time,callback,id) {
@@ -49,22 +49,22 @@ class AlarmClock {
       return `${date.toTimeString().substr(0,5)}`;
    }
 
-   start() {
-      function checkClock(clock) {
-         if (clock.time === new AlarmClock().getCurrentFormattedTime()) {
-            clock.callback;
-         }
+   checkClock(clock) {
+      if (clock.time === this.getCurrentFormattedTime()) {
+         clock.callback;
       }
+   }
 
+   start() {
       if (!this.timerId) {
-         this.timerId = setInterval(this.alarmCollection.forEach(element => checkClock(element)), 1000);
+         this.timerId = setInterval(this.alarmCollection.forEach(element => this.checkClock(element)), 1000);
       }
    }   
 
    stop() {
       if (this.timerId) {
          clearInterval(this.timerId);
-         this.timerId === null;
+         this.timerId = null;
       }
    }
 
