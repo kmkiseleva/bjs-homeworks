@@ -51,13 +51,17 @@ class AlarmClock {
 
    checkClock(clock) {
       if (clock.time === this.getCurrentFormattedTime()) {
-         clock.callback;
+         clock.callback();
       }
    }
 
    start() {
+      function myFunc() {
+         new AlarmClock().alarmCollection.forEach(element => new AlarmClock().checkClock(element));  
+      }
+
       if (!this.timerId) {
-         this.timerId = setInterval(this.alarmCollection.forEach(element => this.checkClock(element)), 1000);
+         this.timerId = setInterval(myFunc, 1000);
       }
    }   
 
@@ -74,8 +78,8 @@ class AlarmClock {
    }
 
    clearAlarms() {
-      stop();
-      this.alarmCollection.splice(0, this.alarmCollection.length);   
+      this.stop();
+      this.alarmCollection = []; 
    }
 }
 
