@@ -56,8 +56,8 @@ class AlarmClock {
    }
 
    start() {
-      function myFunc() {
-         new AlarmClock().alarmCollection.forEach(element => new AlarmClock().checkClock(element));  
+      const myFunc = () => {
+         this.alarmCollection.forEach(element => this.checkClock(element));  
       }
 
       if (!this.timerId) {
@@ -85,9 +85,9 @@ class AlarmClock {
 
 const alarmClock = new AlarmClock();
 
-alarmClock.addClock("23:36", () => console.log("Пора вставать"), 1);
-alarmClock.addClock("23:37", () => {console.log("Давай, вставай уже!"); alarmClock.removeClock(2)}, 2);
-alarmClock.addClock("23:38", () => console.log("Вставай, а то проспишь!"), 3);
+alarmClock.addClock("11:21", () => console.log("Пора вставать"), 1);
+alarmClock.addClock("11:22", () => {console.log("Давай, вставай уже!"); alarmClock.removeClock(2)}, 2);
+alarmClock.addClock("11:23", () => console.log("Вставай, а то проспишь!"), 3);
 
 alarmClock.printAlarms();
 alarmClock.start();
